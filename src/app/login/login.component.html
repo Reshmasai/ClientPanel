@@ -1,0 +1,39 @@
+
+<br>
+<div class="row">
+    <div class="col-md-6 mx-auto">
+        <div class="card">
+            <div class="card-body">
+                <h1 class="text-center pb-4 pt-3">
+                    <span class="text-primary"><i class="fa fa-lock" aria-hidden="true"></i> Client Panel </span>Login
+                
+                </h1>
+                <form #LoginForm="ngForm">
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" name="email" class="form-control" [ngClass]="{'is-invalid':clientemail.errors && clientemail.touched}" #clientemail="ngModel" [(ngModel)]="email"  required email >
+                        <div [hidden]="!clientemail.errors?.['required']" class="invalid-feedback">
+                            email required
+                        </div>
+                        <div [hidden]="!clientemail.errors?.['email']" class="invalid-feedback">
+                            invalid email
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="password">Password</label>
+                        <input type="password" name="password" class="form-control" [ngClass]="{'is-invalid':clientpassword.errors && clientpassword.touched}" #clientpassword="ngModel" [(ngModel)]="password"  required minlength="6">
+                        <div [hidden]="!clientpassword.errors?.['required']" class="invalid-feedback">
+                            password required
+                        </div>
+                        <div [hidden]="!clientpassword.errors?.['minlength']" class="invalid-feedback">
+                            password must be atleast 6 charecters long
+                        </div>
+                    </div>
+                    <div>don't have an account? <a routerLink="/register">Register</a></div><br>
+                    <input type="submit" [disabled]="!LoginForm.valid" (click)="onSubmit(LoginForm)" value="login" class="btn btn-primary btn-block">
+                </form>
+            </div>
+        </div>
+    </div>
+</div><br>
+<p style="text-align: center">enter credentials (email: abc@gmail.com  password: 123456) or Register before Logging in</p>

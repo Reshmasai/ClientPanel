@@ -1,0 +1,54 @@
+<div class="row">
+    <div class="col-md-6">
+        <a routerLink="/dashboard" class="btn btn-link">
+            <i class="fa fa-arrow-circle-o-left"></i> Back to Dashboard
+        </a>
+    </div>
+    <div class="col-md-6">
+
+    </div>
+</div>
+<div class="col-md-8 mx-auto">
+<div class="card">
+    <div class="card-header">
+        {{header}} Client
+    </div>
+    <div class="card-body">
+        <form #clientForm="ngForm">
+            <div class="form-group">
+                <label for="id">ID</label>
+                <input type="number" class="form-control" [ngModel]="Client.id" name="id">
+
+            </div>
+            <div class="form-group">
+                <label for="firstname">First Name</label>
+                <input type="text" class="form-control" [ngModel]="Client.firstname" name="firstname">
+
+            </div>
+            <div class="form-group">
+                <label for="lastname">Last name</label>
+                <input type="text" class="form-control" [ngModel]="Client.lastname" name="lastname">
+
+            </div>
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" class="form-control" [ngModel]="Client.email" name="email">
+
+            </div>
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="number" class="form-control" name="phone" [ngModel]="Client.phone">
+
+            </div>
+            <div class="form-group">
+                <label for="balance">Balance</label>
+                <input type="number" class="form-control" name="balance" [ngModel]="Client.balance">
+
+            </div>
+            
+            
+            <input type="submit"  (click)="onSubmit(clientForm)" value="submit" class="btn btn-primary btn-block">
+        </form>
+    </div>
+</div>
+</div>
